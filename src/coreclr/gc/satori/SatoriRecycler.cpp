@@ -3829,8 +3829,6 @@ void SatoriRecycler::RelocateRegion(SatoriRegion* relocationSource)
 
     relocationTarget->StopAllocating(dst);
 
-    printf("\n RELOCATED: %i \n", (int)objectsRelocated);
-
     // just update the obj count, if target is not marked this will be correct
     // otherwise sweep will update anyways.
     relocationTarget->SetOccupancy(relocationTarget->Occupancy(), relocationTarget->ObjCount() + objectsRelocated);
