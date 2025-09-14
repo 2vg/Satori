@@ -3471,6 +3471,7 @@ void SatoriRecycler::FreeRelocatedRegionsWorker()
     }
 }
 
+NOINLINE
 void SatoriRecycler::Plan()
 {
     _ASSERTE(m_ephemeralFinalizationTrackingRegions->IsEmpty());
@@ -4145,7 +4146,7 @@ void SatoriRecycler::UpdateRegions(SatoriRegionQueue* queue)
             }
 
             // these we can sweep/return later
-            if (curRegion->IsReusable())
+            if (curRegion->IsReuseCandidate())
             {
                 m_deferredSweepRegions->Push(curRegion);
             }
